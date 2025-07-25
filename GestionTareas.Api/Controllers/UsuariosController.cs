@@ -42,7 +42,7 @@ namespace GestionTareas.Api.Controllers
         public dynamic Post([FromBody] dynamic usuario)
         {
             connection.Execute(
-                @"INSERT INTO Usuarios (Id, NombreUsuario, Email, PasswordHash, NombreCompleto, FechaCreacion, Activo)" +
+                @"INSERT INTO Usuarios (id, NombreUsuario, Email, PasswordHash, NombreCompleto, FechaCreacion, Activo)" +
                 "VALUES (@Id, @NombreUsuario, @Email, @PasswordHash, @NombreCompleto, @FechaCreacion, @Activo)",
                 new
                 {
