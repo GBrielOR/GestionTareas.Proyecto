@@ -1,7 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestionTareas.Api.Models
 {
+
+    [Table("Usuarios")]
+
     public class Usuario
     {
         public int Id { get; set; }

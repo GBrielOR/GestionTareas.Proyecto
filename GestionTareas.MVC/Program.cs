@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using GestionTareas.Api.Models;
+using GestionTareas.ApiConsumer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 namespace GestionTareas.MVC
 {
@@ -6,7 +8,11 @@ namespace GestionTareas.MVC
     {
         public static void Main(string[] args)
         {
+            Crud<Usuario>.EndPoint = "https://localhost:7244/api/Usuarios"; 
+            Crud<Tarea>.EndPoint = "https://localhost:7244/api/Tareas";
+            Crud<Proyecto>.EndPoint = "https://localhost:7244/api/Proyectos";
             var builder = WebApplication.CreateBuilder(args);
+          
             
             // Add services to the container.
             builder.Services.AddControllersWithViews();

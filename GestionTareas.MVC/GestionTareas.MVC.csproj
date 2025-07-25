@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GestionTareas.ApiConsumer\GestionTareas.ApiConsumer.csproj" />
     <ProjectReference Include="..\GestionTareas.Api\GestionTareas.Api.csproj" />
   </ItemGroup>
 

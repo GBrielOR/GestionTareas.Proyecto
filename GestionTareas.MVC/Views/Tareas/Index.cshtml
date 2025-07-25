@@ -1,0 +1,95 @@
+﻿@model IEnumerable<GestionTareas.Api.Models.Tarea>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCreacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaVencimiento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaCompletada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioCreadorId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UsuarioAsignadoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProyectoId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoTarea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrioridadTarea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Progreso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaVencimiento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCompletada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioCreadorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UsuarioAsignadoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProyectoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoTarea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrioridadTarea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Progreso)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
