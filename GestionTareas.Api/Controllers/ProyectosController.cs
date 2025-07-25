@@ -38,7 +38,7 @@ namespace GestionTareas.Api.Controllers
         }
 
         [HttpPost]
-        public dynamic Post([FromBody] dynamic proyecto)
+        public IActionResult Post([FromBody] Proyecto proyecto)
         {
             connection.Execute(
                 @"INSERT INTO Proyectos (Id, Nombre, Descripcion, FechaCreacion, FechaInicio, FechaFin, UsuarioCreadorId, Estado)" +
@@ -52,13 +52,13 @@ namespace GestionTareas.Api.Controllers
                     FechaInicio = proyecto.FechaInicio,
                     FechaFin = proyecto.FechaFin,
                     UsuarioCreadorId = proyecto.UsuarioCreadorId,
-                    EstadoProyecto = proyecto.Estado
+                    Estado = proyecto.Estado
                 });
-            return proyecto;
+            return Ok(proyecto);
         }
 
         [HttpPut("{id}")]
-        public dynamic Put(int id, [FromBody] dynamic proyecto)
+        public IActionResult Put(int id, [FromBody] Proyecto proyecto)
         {
             var existingProyecto = connection.QueryFirstOrDefault<dynamic>("SELECT * FROM Proyectos WHERE Id = @Id", new { Id = id });
             if (existingProyecto == null)
@@ -77,7 +77,7 @@ namespace GestionTareas.Api.Controllers
                     UsuarioCreadorId = proyecto.UsuarioCreadorId,
                     Estado = proyecto.Estado
                 });
-            return proyecto;
+            return Ok(proyecto);
         }
 
         [HttpDelete("{id}")]

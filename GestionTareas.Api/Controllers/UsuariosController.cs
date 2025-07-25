@@ -39,38 +39,39 @@ namespace GestionTareas.Api.Controllers
         }
 
         [HttpPost]
-        public dynamic Post([FromBody] dynamic usuario)
+        public IActionResult Post([FromBody] Usuario usuario)
         {
             connection.Execute(
-                @"INSERT INTO Usuarios (id, NombreUsuario, Email, PasswordHash, NombreCompleto, FechaCreacion, Activo)" +
-                "VALUES (@Id, @NombreUsuario, @Email, @PasswordHash, @NombreCompleto, @FechaCreacion, @Activo)",
+                @"INSERT INTO Usuarios (id, NombreDeUsuario, Email, PasswordHash, NombreCompleto, FechaCreacion, Activo)" +
+                "VALUES (@Id, @NombreDeUsuario, @Email, @PasswordHash, @NombreCompleto, @FechaCreacion, @Activo)",
                 new
                 {
                     Id = usuario.Id,
-                    NombreUsuario = usuario.NombreUsuario,
+                    NombreDeUsuario = usuario.NombreDeUsuario,
                     Email = usuario.Email,
                     PasswordHash = usuario.PasswordHash,
                     NombreCompleto = usuario.NombreCompleto,
                     FechaCreacion = usuario.FechaCreacion,
                     Activo = usuario.Activo
                 });
-            return usuario;
+            return Ok(usuario);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Usuario usuario)
+        public IActionResult Put(int id, [FromBody] Usuario usuario)
         {
             connection.Execute(
-                "UPDATE Usuarios SET NombreUsuario = @NombreUsuario, Email = @Email, PasswordHash = @PasswordHash, NombreCompleto = @NombreCompleto, FechaCreacion = @FechaCreacion, Activo = @Activo WHERE Id = @Id",
+                "UPDATE Usuarios SET NombreDeUsuario = @NombreDeUsuario, Email = @Email, PasswordHash = @PasswordHash, NombreCompleto = @NombreCompleto, FechaCreacion = @FechaCreacion, Activo = @Activo WHERE Id = @Id",
                 new {
                   usuario.Id,
-                  usuario.NombreUsuario,
+                  usuario.NombreDeUsuario,
                   usuario.Email,
                   usuario.PasswordHash,
                   usuario.NombreCompleto,
                   usuario.FechaCreacion,
                   usuario.Activo
                 });
+            return Ok(usuario);
         }
 
         [HttpDelete("{id}")]

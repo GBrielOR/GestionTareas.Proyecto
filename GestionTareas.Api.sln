@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionTareas.Api", "Gestio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionTareas.MVC", "GestionTareas.MVC\GestionTareas.MVC.csproj", "{68D3FFD2-AADA-4C21-B3A1-3B6382FFEE09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionTareasApiConsumer", "GestionTareasApiConsumer\GestionTareasApiConsumer.csproj", "{91447A2B-64FF-46DB-AAF4-DB2925E5175E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{68D3FFD2-AADA-4C21-B3A1-3B6382FFEE09}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68D3FFD2-AADA-4C21-B3A1-3B6382FFEE09}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68D3FFD2-AADA-4C21-B3A1-3B6382FFEE09}.Release|Any CPU.Build.0 = Release|Any CPU
-		{91447A2B-64FF-46DB-AAF4-DB2925E5175E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{91447A2B-64FF-46DB-AAF4-DB2925E5175E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{91447A2B-64FF-46DB-AAF4-DB2925E5175E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{91447A2B-64FF-46DB-AAF4-DB2925E5175E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

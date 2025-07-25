@@ -12,7 +12,7 @@ namespace GestionTareas.Api.Models
         public DateTime? FechaInicio { get; set; }
         public DateTime? FechaFin { get; set; }
         public int UsuarioCreadorId { get; set; } 
-        public EstadoProyecto Estado { get; set; } = EstadoProyecto.Activo;
+        public string Estado { get; set; }
 
     }
 }

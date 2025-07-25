@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using GestionTareas.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data.Common;
@@ -37,7 +38,7 @@ namespace GestionTareas.Api.Controllers
         }
 
         [HttpPost]
-        public dynamic Post([FromBody] dynamic tarea)
+        public IActionResult Post([FromBody] Tarea tarea)
         {
             connection.Execute(
                 @"INSERT INTO Tareas (Id, Titulo, Descripcion, FechaCreacion, FechaVencimiento, FechaCompletada, UsuarioCreadorId, AsignadoAUsuarioId, ProyectoId, Estado, Prioridad, Progreso)" +
@@ -57,11 +58,11 @@ namespace GestionTareas.Api.Controllers
                     Prioridad = tarea.Prioridad,
                     Progreso = tarea.Progreso
                 });
-            return tarea;
+            return Ok(tarea);
         }
 
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] dynamic tarea)
+        public IActionResult Put(int id, [FromBody] Tarea tarea)
         {
             connection.Execute(
                 @"UPDATE Tareas SET Titulo = @Titulo, Descripcion = @Descripcion, FechaVencimiento = @FechaVencimiento, FechaCompletada = @FechaCompletada, UsuarioCreadorId = @UsuarioCreadorId, AsignadoAUsuarioId = @AsignadoAUsuarioId, ProyectoId = @ProyectoId, Estado = @Estado, Prioridad = @Prioridad, Progreso = @Progreso WHERE Id = @Id",
@@ -79,6 +80,7 @@ namespace GestionTareas.Api.Controllers
                     Prioridad = tarea.Prioridad,
                     Progreso = tarea.Progreso
                 });
+            return Ok(tarea);
         }
 
         [HttpDelete("{id}")]
