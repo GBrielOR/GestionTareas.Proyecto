@@ -2,6 +2,8 @@
 using GestionTareas.ApiConsumer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 namespace GestionTareas.MVC
 {
     public class Program
@@ -16,7 +18,11 @@ namespace GestionTareas.MVC
             
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Login/Login";
+                });
 
             var app = builder.Build();
 
