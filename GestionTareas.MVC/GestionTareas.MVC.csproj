@@ -21,4 +21,8 @@
     <ProjectReference Include="..\GestionTareas.Api\GestionTareas.Api.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
+
 </Project>
