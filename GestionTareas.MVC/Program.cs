@@ -1,3 +1,5 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 namespace GestionTareas.MVC
 {
     public class Program
@@ -5,9 +7,10 @@ namespace GestionTareas.MVC
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            
 
             var app = builder.Build();
 

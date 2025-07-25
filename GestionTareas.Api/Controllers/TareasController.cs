@@ -41,8 +41,8 @@ namespace GestionTareas.Api.Controllers
         public IActionResult Post([FromBody] Tarea tarea)
         {
             connection.Execute(
-                @"INSERT INTO Tareas (Id, Titulo, Descripcion, FechaCreacion, FechaVencimiento, FechaCompletada, UsuarioCreadorId, AsignadoAUsuarioId, ProyectoId, Estado, Prioridad, Progreso)" +
-                "VALUES (@Id, @Titulo, @Descripcion, @FechaCreacion, @FechaVencimiento, @FechaCompletada, @UsuarioCreadorId, @AsignadoAUsuarioId, @ProyectoId, @Estado, @Prioridad, @Progreso)",
+                @"INSERT INTO Tareas (Id, Titulo, Descripcion, FechaCreacion, FechaVencimiento, FechaCompletada, UsuarioCreadorId, UsuarioAsignadoId, ProyectoId, EstadoTarea, PrioridadTarea, Progreso)" +
+                "VALUES (@Id, @Titulo, @Descripcion, @FechaCreacion, @FechaVencimiento, @FechaCompletada, @UsuarioCreadorId, @UsuarioAsignadoId, @ProyectoId, @EstadoTarea, @PrioridadTarea, @Progreso)",
                 new
                 {
                     Id = tarea.Id,
@@ -52,10 +52,10 @@ namespace GestionTareas.Api.Controllers
                     FechaVencimiento = tarea.FechaVencimiento,
                     FechaCompletada = tarea.FechaCompletada,
                     UsuarioCreadorId = tarea.UsuarioCreadorId,
-                    AsignadoAUsuarioId = tarea.AsignadoAUsuarioId,
+                    UsuarioAsignadoId = tarea.UsuarioAsignadoId,
                     ProyectoId = tarea.ProyectoId,
-                    Estado = tarea.Estado,
-                    Prioridad = tarea.Prioridad,
+                    EstadoTarea = tarea.EstadoTarea,
+                    PrioridadTarea = tarea.PrioridadTarea,
                     Progreso = tarea.Progreso
                 });
             return Ok(tarea);
@@ -65,7 +65,7 @@ namespace GestionTareas.Api.Controllers
         public IActionResult Put(int id, [FromBody] Tarea tarea)
         {
             connection.Execute(
-                @"UPDATE Tareas SET Titulo = @Titulo, Descripcion = @Descripcion, FechaVencimiento = @FechaVencimiento, FechaCompletada = @FechaCompletada, UsuarioCreadorId = @UsuarioCreadorId, AsignadoAUsuarioId = @AsignadoAUsuarioId, ProyectoId = @ProyectoId, Estado = @Estado, Prioridad = @Prioridad, Progreso = @Progreso WHERE Id = @Id",
+                @"UPDATE Tareas SET Titulo = @Titulo, Descripcion = @Descripcion, FechaVencimiento = @FechaVencimiento, FechaCompletada = @FechaCompletada, UsuarioCreadorId = @UsuarioCreadorId, UsuarioAsignadoId = @UsuarioAsignadoId, ProyectoId = @ProyectoId, EstadoTarea = @EstadoTarea, PrioridadTarea = @PrioridadTarea, Progreso = @Progreso WHERE Id = @Id",
                 new
                 {
                     Id = id,
@@ -74,10 +74,10 @@ namespace GestionTareas.Api.Controllers
                     FechaVencimiento = tarea.FechaVencimiento,
                     FechaCompletada = tarea.FechaCompletada,
                     UsuarioCreadorId = tarea.UsuarioCreadorId,
-                    AsignadoAUsuarioId = tarea.AsignadoAUsuarioId,
+                    UsuarioAsignadoId = tarea.UsuarioAsignadoId,
                     ProyectoId = tarea.ProyectoId,
-                    Estado = tarea.Estado,
-                    Prioridad = tarea.Prioridad,
+                    EstadoTarea = tarea.EstadoTarea,
+                    PrioridadTarea = tarea.PrioridadTarea,
                     Progreso = tarea.Progreso
                 });
             return Ok(tarea);

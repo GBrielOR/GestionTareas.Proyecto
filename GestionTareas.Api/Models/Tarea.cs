@@ -12,10 +12,10 @@ namespace GestionTareas.Api.Models
         public DateTime? FechaVencimiento { get; set; }
         public DateTime? FechaCompletada { get; set; }
         public int UsuarioCreadorId { get; set; } 
-        public int AsignadoAUsuarioId { get; set; }
+        public int UsuarioAsignadoId { get; set; }
         public int ProyectoId { get; set; } 
-        public EstadoTarea Estado { get; set; } = EstadoTarea.Pendiente;
-        public PrioridadTarea Prioridad { get; set; } = PrioridadTarea.Media;
+        public string EstadoTarea { get; set; }
+        public string PrioridadTarea { get; set; }
         public int Progreso { get; set; } = 0;
     }
 }
